@@ -1,0 +1,31 @@
+.analyser-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+}
+
+.navbar{
+    justify-content: flex-start;
+}
+
+.mycard-group {
+    display: inline-flex;
+    flex-flow: row wrap;
+}
+
+.card {
+    min-width: 18em;
+    -webkit-box-shadow: 6px 7px 14px 0px rgba(0,0,0,0.33);
+    -moz-box-shadow: 6px 7px 14px 0px rgba(0,0,0,0.33);
+    box-shadow: 6px 7px 14px 0px rgba(0,0,0,0.33);
+}
+.card-title{
+    /* color:red; */
+}
+
+.card.sub {
+    /* background-color: #006120 !important; */
+    margin: 2px;
+
+}

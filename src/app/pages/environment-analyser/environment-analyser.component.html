@@ -1,0 +1,134 @@
+<nav class="navbar navbar-dark bg-dark sticky-top ">
+  <div class="navbar-brand" href="#">EnvAnalyser</div>
+  <button class="btn btn-dark" (click)="envAnalyser('detectMultipleElems')">MultiObject</button>
+  <button class="btn  btn-dark" (click)="envAnalyser('faceMark')">faceMark</button>
+  <button class="btn  btn-dark" (click)="envAnalyser('detectOneElem')">OneObject</button>
+  <p></p>
+</nav>
+
+
+<div class="analyser-container" *ngIf="envAnalyserStatus">
+
+  <ng-container *ngFor="let env of envAnalyserStatus; trackBy:trakByEnvAnalyser">
+    <div class="card" style="width:100%">
+      <div class="card-header">
+        <h5 class="card-title">{{env.code}}</h5>
+      </div>
+      <div class="card-body">
+
+        <div class="card-group">
+
+          <!-- <ng-container *ngIf="env.multipleElems">
+            <div class="card sub border-secondary">
+              <div class="card-header">
+                <h5 class="card-title">multipleElems</h5>
+              </div>
+              <img [src]="env.multipleElems.image" class="card-img-top" alt="{{env.code}}">
+              <div class="card-body">
+                <ng-container *ngFor="let elem of getBestMultipleElems(env.multipleElems.data)">
+                  <p class="card-title">{{elem}}</p>
+                </ng-container>
+                <p class="card-text"><small class="text-muted">Nombre d'éléments :
+                    {{env?.multipleElems.data?.length}}</small></p>
+              </div>
+            </div>
+          </ng-container> -->
+
+
+
+          <ng-container *ngFor="let analyser of envAnalyserList">
+            <ng-container *ngIf="env[analyser.code]">
+
+              <div class="card sub bg-light">
+                <div class="card-header bg-info">
+                  <h5 class="card-title" >{{analyser.label}}</h5>
+                </div>
+                <img *ngIf="env[analyser.code].image" [src]="env[analyser.code].image" class="card-img-top"
+                  alt="{{env.code}}">
+                <div class="card-body">
+
+                  <p>
+                    {{analyser.description}}
+                  </p>
+
+
+
+                  <ng-container [ngSwitch]="analyser.code">
+
+                    <div *ngSwitchCase="'multipleElems'">
+                      <ng-container *ngFor="let elem of getBestMultipleElems(env.multipleElems.data)">
+                        <p class="card-title">{{elem}}</p>
+                      </ng-container>
+                    </div>
+
+                    <div *ngSwitchCase="'oneElem'">
+
+                      <p class="card-text"><small class="text-muted">
+                          {{env?.oneElem.data[0].className}}
+                          ({{(env?.oneElem.data[0].confidence*100).toFixed()}}%)</small>
+                      </p>
+                    </div>
+
+                    <div *ngSwitchDefault>
+  
+                    </div>
+                   
+
+                  </ng-container>
+                </div>
+                <div class="card-footer text-muted">
+                  <p class="card-text"><small class="text-muted">(resultats
+                    :{{env[analyser.code].data?.length}})</small></p>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+
+
+          <!-- 
+          <ng-container *ngIf="env.faceMark">
+            <div class="card sub border-secondary">
+              <div class="card-header">
+                <h5 class="card-title">faceMark</h5>
+              </div>
+              <img [src]="env.faceMark.image" class="card-img-top" alt="{{env.code}}">
+              <div class="card-body">
+                <p class="card-text"><small class="text-muted">Nombre d'éléments :
+                    {{env?.faceMark.data?.length}}</small></p>
+              </div>
+            </div>
+          </ng-container>
+
+
+          <ng-container *ngIf="env.tracking">
+            <div class="card sub border-secondary">
+              <div class="card-header">
+                <h5 class="card-title">tracking</h5>
+              </div>
+              <img *ngIf="env.tracking.image" [src]="env.tracking.image" class="card-img-top" alt="{{env.code}}">
+              <div class="card-body">
+              </div>
+            </div>
+          </ng-container>
+
+
+          <ng-container *ngIf="env.oneElem">
+            <div class="card sub border-secondary">
+              <div class="card-header">
+                <h5 class="card-title">oneElem</h5>
+              </div>
+              <img [src]="env.oneElem.image" class="card-img-top" alt="{{env.code}}">
+              <div class="card-body">
+
+              </div>
+            </div>
+          </ng-container>
+ -->
+
+        </div>
+      </div>
+
+    </div>
+  </ng-container>
+
+</div>

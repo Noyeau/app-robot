@@ -1,0 +1,71 @@
+#immersion-container {
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed !important;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: contain;
+    background-color: black;
+    z-index: 0;
+}
+
+
+.btn-bt-center{
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border-radius: 3px;
+    background-color: lightslategray;
+}
+
+.btn-right{
+    width: 20px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border-radius: 3px;
+    background-color: lightslategray;
+}
+
+
+#bottomCenter {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 5;
+}
+
+#right {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    max-height: 150px;
+    max-width: 150px;
+
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 5;
+    background-color: rgba(.3,.3,1,0.7);
+}
+
+
+.test{
+    text-align: center;
+}

@@ -1,0 +1,21 @@
+<div id="button-menu">
+  <div class="menu-zone">
+    <button class="btn btn-primary" type="button" (click)="isOpen = ! isOpen" >
+      <span class="material-icons">
+        apps
+      </span>
+    </button>
+    <ng-container *ngIf="isOpen">
+      <button class="btn btn-info menu-item" routerLink="/" (click)="isOpen = ! isOpen" >
+        <span class="material-icons">
+          control_camera
+        </span>
+      </button>
+      <button class="btn btn-light menu-item" routerLink="/analyse" (click)="isOpen = ! isOpen" >
+        <span class="material-icons">
+          loupe
+        </span>
+      </button>
+    </ng-container>
+  </div>
+</div>

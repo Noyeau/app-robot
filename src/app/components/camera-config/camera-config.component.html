@@ -1,0 +1,13 @@
+<button (click)="goHome()" style="width: 100%; text-align: center;">goHome</button>
+<button (click)="goHome2()" style="width: 100%; text-align: center;">goHomeV2</button>
+
+<button (click)="displayOSD()" style="width: 100%; text-align: center;">OSD</button>
+<input type="number" class="form-control" [(ngModel)]="vitesse" (ngModelChange)="changeVitesse()" style="width: 100%;"/>
+
+<input type="number" class="form-control" [(ngModel)]="frameRate" (ngModelChange)="changeFrameRate()" style="width: 100%;"/>
+<input type="number" class="form-control" [(ngModel)]="statusRate" (ngModelChange)="changeStatusRate()" style="width: 100%;"/>
+<select class="form-control" [(ngModel)]="videoFrameListe" (ngModelChange)="changeVideoFrame()" style="width: 100%;" multiple>
+  <option *ngFor="let video of videoSources" [value]="video">
+    {{video}}
+  </option>
+</select>

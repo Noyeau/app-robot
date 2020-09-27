@@ -1,0 +1,30 @@
+<div id="immersion-container" [style.backgroundImage]="'url(' + getImage() + ')'"></div>
+
+
+
+<div id="bottomCenter" >
+  <div [hidden]="!bottomCenterDisplay">
+    <ng-content select="[bottomCenter]" ></ng-content>
+  </div>
+  <div class="btn-bt-center" (click)="bottomCenterDisplay = !bottomCenterDisplay" style="width:100%">
+      <app-svg [code]="'arrow'" [style]="'fill:rgb(20, 67, 155);stroke:purple;stroke-width:1;'" [width]="'70%'" [transformOrigin]="'center'" [transform]="!bottomCenterDisplay?'scale(1,0.25)':'scale(1,-0.25)'"></app-svg>
+
+   
+
+
+  </div>
+
+</div>
+<!-- <button (click)="mouvActive ? mouvActive=false:mouv()" >epuise Batterie</button> -->
+
+<div id="right" >
+  <div [hidden]="!rightDisplay">
+    <ng-content select="[right]" class="test" id="123"></ng-content>
+  </div>
+  <div class="btn-right" (click)="rightDisplay = !rightDisplay">
+    <ng-container>
+      <app-svg [code]="'arrow'" [style]="'fill:rgb(20, 67, 155);stroke:purple;stroke-width:1;'" [transformOrigin]="'center'" [transform]="!rightDisplay?'rotate(-90) scale(1,0.25)':'rotate(-90) scale(1,-0.25)'"></app-svg>
+    </ng-container>
+  </div>
+
+</div>
